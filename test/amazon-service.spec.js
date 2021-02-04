@@ -98,7 +98,7 @@ describe("Amazon service object", () => {
     });
   });
 
-  describe.only("DELETE /api/cart/items/:item_id", () => {
+  describe("DELETE /api/cart/items/:item_id", () => {
     context("Given there are items in the database", () => {
       beforeEach("insert item in cart", () => {
         return db
