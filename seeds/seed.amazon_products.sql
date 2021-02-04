@@ -1,8 +1,8 @@
 BEGIN;
 
 TRUNCATE
-  amazon_products,
   amazon_basket,
+  amazon_products
   RESTART IDENTITY CASCADE;
 
 INSERT INTO amazon_products (title, price, rating, img_link)
