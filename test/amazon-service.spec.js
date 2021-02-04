@@ -91,14 +91,11 @@ describe("Amazon service object", () => {
           product_id: 1,
         };
         return supertest(app).post("/api/cart").send(newItem).expect(201);
-        //   .then((res) =>
-        //     supertest(app).get(`/api/cart/items`).expect(expectItem)
-        //   );
       });
     });
   });
 
-  describe("DELETE /api/cart/items/:item_id", () => {
+  describe.skip("DELETE /api/cart/items/:item_id", () => {
     context("Given there are items in the database", () => {
       beforeEach("insert item in cart", () => {
         return db
@@ -110,14 +107,11 @@ describe("Amazon service object", () => {
       });
 
       it("responds with 204 and removes the article", () => {
-        // const idToRemove = 1;
-        // const expectedBasket = testItemInBasket.filter(
-        //   (item) => item.item_id !== idToRemove
-        // );
-        // return supertest(app).delete(`/api/cart/${idToRemove}`).expect(200);
-        //   .then((res) =>
-        //     supertest(app).get(`/cart/items`).expect(expectedBasket)
-        //   );
+        const idToRemove = 14;
+        const expectedBasket = testItemInBasket.filter(
+          (item) => item.item_id !== idToRemove
+        );
+        return supertest(app).delete(`/api/cart/${idToRemove}`).expect(200);
       });
     });
   });

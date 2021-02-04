@@ -1,26 +1,72 @@
-# Express Boilerplate!
+# Amazon-client
 
-This is a boilerplate project used for starting new projects!
+Live Deployment
 
-## Set up
+[https://amazon-client.cmgrace.vercel.app/](https://amazon-client.cmgrace.vercel.app/)
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## API Documentation
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+### Amazon Endpoints
 
-## Scripts
+    GET /api/products: Return an array of products stored in database.
 
-Start the application `npm start`
+```
+{
+      id: 1,
+      title:
+        "The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback",
+      price: "11.96",
+      rating: 5,
+      img_link:
+        "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg",
+      date_published: "2021-01-29T17:19:49.000Z",
+}
+```
 
-Start nodemon for the application `npm run dev`
+    GET /cart/items: Return an array of item in the cart.
 
-Run the tests `npm test`
+```
+{
+      item_id: 1,
+      product_id: 1,
+      title:
+        "The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback",
+      price: "11.96",
+      rating: 5,
+      img_link:
+        "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg",
+    }
+```
 
-## Deploying
+    POST /cart: post an item to the cart table
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
+```
+{ item_id: 1, product_id: 1 }
+```
+
+    POST /auth/login: post the user credentials for verification.
+
+    DELETE /cart/items/:item_id: allow user to remove the item in the cart
+
+## Technology used
+
+### Frontend
+
+- ReactJS
+- React Router
+- React Context
+- HTML
+- CSS
+- Webpack
+- Jest
+- Deployed at Vercel
+
+### Backend
+
+- RESTful API
+- Node & Express
+- PostgresSQL
+- Knex
+- Supertest
+- Mocha & Chai
+- Deployed Heroku
